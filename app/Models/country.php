@@ -10,4 +10,9 @@ class country extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table = 'country';
+
+    public function state()
+    {
+        return $this->hasMany(state::class);
+    }
 }

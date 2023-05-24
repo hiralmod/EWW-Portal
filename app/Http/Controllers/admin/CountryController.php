@@ -24,15 +24,15 @@ class CountryController extends Controller
                 ->addIndexColumn()
                 ->editColumn('status', function ($row) {
                   if($row->status == 1) {
-                    $btn = '<a href="javascript:void(0)" class="text-success" id="status_'.$row->id.'" data-table="country" data-id="'.$row->id.'" data-popup="tooltip" onclick="change_status(this);"><span class="badge rounded-pill bg-success status_btn pt-2"> Active</span></a>';
+                    $btn = '<a href="javascript:void(0)" class="text-success" id="status_'.$row->id.'" data-table="country" data-id="'.$row->id.'" onclick="change_status(this);"><span class="badge bg-success"> Active</span></a>';
                   } else {
-                    $btn = '<a href="javascript:void(0)" class="text-danger" id="status_'.$row->id.'" data-table="country" data-id="'.$row->id.'" data-popup="tooltip" onclick="change_status(this);return false;"><span class="badge rounded-pill bg-danger status_btn pt-2"> Inactive</span></a>';
+                    $btn = '<a href="javascript:void(0)" class="text-danger" id="status_'.$row->id.'" data-table="country" data-id="'.$row->id.'" onclick="change_status(this);return false;"><span class="badge bg-danger"> Inactive</span></a>';
                   }
                     return $btn;
                 }) 
                 ->editColumn('action', function ($row) {
-                    $result = '<a href="' . url('admin/country/edit/'.$row['id']) . '" class="mr-2"><i class="fa fa-edit"></i></a>';
-                    $result .= '<a href="" id="'.$row->id.'" data-table="country" data-id="'.$row->id.'"onclick="delete_record(this);return false;"><i class="fas fa-trash" title="Remove"></i></a>';
+                    $result = '<a href="' . url('admin/country/edit/'.$row['id']) . '" class="mr-2"><i class="fa fa-edit fa-lg text-blue"></i></a>';
+                    $result .= '<a href="" id="'.$row->id.'" data-table="country" data-id="'.$row->id.'"onclick="delete_record(this);return false;"><i class="fas fa-trash fa-lg text-blue" title="Remove"></i></a>';
                     return $result;
                 })
                

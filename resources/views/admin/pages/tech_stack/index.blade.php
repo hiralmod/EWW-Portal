@@ -7,13 +7,13 @@
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"></a>Dashboard</li>
-                    <li class="breadcrumb-item">State</li>
+                    <li class="breadcrumb-item">Teck Stack</li>
                 </ol>
             </div>
-            <h4 class="page-title mt-3">State</h4>
+            <h4 class="page-title mt-3">Teck Stack</h4>
         </div>
         <div class="btn-group float-right mt-2 mb-2">
-            <a href="{{ route('state.create') }}" class="btn btn-sm btn-blue waves-effect waves-light"><i class="fas fa-plus mr-1"></i> Add</a>
+            <a href="{{ route('tech_stack.create') }}" class="btn btn-sm btn-blue waves-effect waves-light"><i class="fas fa-plus"></i> Add</a>
         </div>
     </div>
 </div>
@@ -21,26 +21,24 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                     <div class="col-md-3">
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label>Type</label>
                             <select class="form-control" name="type" id="type">
                                 <option value="">All Type</option>
                                 <option value="1">School</option>
                                 <option value="2">Teacher</option>
                             </select>
-                        </div> --}}
+                        </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="table">
                     <table class="table table-bordered datatable">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Country</th>
                                 <th>Name</th>
-                                <th>State Code</th>
                                 <th>Status</th>
                                 <th width="100px">Action</th>
                             </tr>
@@ -65,7 +63,7 @@
                 processing: true,
                 serverSide: true,
                 "ajax": {
-                    "url": "{{ route('state.index') }}",
+                    "url": "",
                     "type": "GET",
                 },
                 columns: [{
@@ -73,20 +71,10 @@
                         name: 'id'
                     },
                     {
-                        data: 'country_id',
-                        name: 'country'
-                    },
-                    {
                         data: 'name',
                         name: 'name',
                         orderable: true,
                         searchable: true
-                    },
-                    {
-                        data: 'code',
-                        name: 'code',
-                        orderable: false,
-                        searchable: false
                     },
                     {
                         data: 'status',

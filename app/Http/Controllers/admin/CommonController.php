@@ -16,7 +16,6 @@ class CommonController extends Controller
         $data = DB::table($table)->whereId($id)->first();
         if(isset($data)) {
             $status= ($data->status == 1) ? 0 : 1;
-            // $status['updated_at'] = date('Y-m-d H:i:s');
             DB::table($table)->whereId($id)->update(["status"=>$status]);
             Session::flash('success_message', 'Status Changed successfully');
             return redirect()->route('country.index');

@@ -16,8 +16,9 @@ return new class extends Migration
             $table->integer('country_id');
             $table->integer('state_id');
             $table->string('name');
-            $table->softDeletes();
+            $table->string('status')->default(1)->comment('0=>Inactive,1=>Active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

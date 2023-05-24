@@ -18,57 +18,57 @@
                         <span> Country </span>
                     </a>
                 </li>
-                <li id="users-tab">
-                    <a href="{{ route('state.index') }}" id="users-tab-a">
+                <li>
+                    <a href="{{ route('state.index') }}">
                         <i class="fas fa-globe-asia"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span>State </span>
                     </a>
                 </li>
-                <li id="services-tab">
-                    <a href="javascript:void(0);" id="services-tab-a">
+                <li>
+                    <a href="{{ route('city.index') }}">
                         <i class="fas fa-city"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> City </span>
                     </a>
                 </li>
-                <li id="sub-services-tab">
-                    <a href="javascript:void(0);" id="sub-services-tab-a">
+                <li>
+                    <a href="{{ route('tech_stack.index') }}">
                         <i class="fas fa-layer-group"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Tech Stacks </span>
                     </a>
                 </li>
-                <li id="pickup-time-slots-tab">
-                    <a href="javascript:void(0);" id="pickup-time-slots-tab-a">
+                <li>
+                    <a href="javascript:void(0);">
                         <i class="fas fa-sitemap"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Departments </span>
                     </a>
                 </li>
-                <li id="dropoff-time-slots-tab">
-                    <a href="javascript:void(0);" id="dropoff-time-slots-tab-a">
+                <li>
+                    <a href="javascript:void(0);">
                         <i class="fas fa-users"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Users </span>
                     </a>
                 </li>
-                <li id="site-tab">
-                    <a href="javascript:void(0);" id="site-tab-a">
+                <li>
+                    <a href="javascript:void(0);">
                         <i class="fas fa-project-diagram"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Project Category </span>
                     </a>
                 </li>
-                <li id="app-version-tab">
-                    <a href="javascript:void(0);" id="app-version-tab-a">
+                <li>
+                    <a href="javascript:void(0);">
                         <i class="fas fa-project-diagram"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Projects </span>
                     </a>
                 </li>
-                <li id="app-version-tab">
-                    <a href="javascript:void(0);" id="app-version-tab-a">
+                <li>
+                    <a href="javascript:void(0);">
                         <i class="fas fa-user-friends"></i>
                         <span class="badge badge-success badge-pill float-right"></span>
                         <span> Clients </span>

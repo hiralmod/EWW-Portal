@@ -143,7 +143,7 @@ body {
 #sidebar-menu > ul > li > a:hover,
 #sidebar-menu > ul > li > a:focus,
 #sidebar-menu > ul > li > a:active {
-  color: #00acc1;
+  color: #2d67be;
   text-decoration: none;
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 #sidebar-menu > ul > li > a.active {
-  color: #00acc1;
+  color: #2d67be;
 }
 
 #sidebar-menu > ul > li > ul {
@@ -290,7 +290,7 @@ body {
 .enlarged .left-side-menu #sidebar-menu > ul > li:hover > a {
   position: relative;
   width: calc(190px + 70px);
-  color: #00acc1;
+  color: #2d67be;
   background-color: #f1f5f7;
 }
 

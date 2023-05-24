@@ -13,7 +13,7 @@
             <h4 class="page-title mt-3">Country</h4>
         </div>
         <div class="btn-group float-right mt-2 mb-2">
-            <a href="{{ route('country.create') }}" class="btn btn-sm btn-primary waves-effect waves-light">Add</a>
+            <a href="{{ route('country.create') }}" class="btn btn-sm waves-effect waves-light btn-blue"><i class="fas fa-plus mr-1"></i> Add</a>
         </div>
     </div>
 </div>
@@ -21,18 +21,18 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                     <div class="col-md-3">
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label>Type</label>
                             <select class="form-control" name="type" id="type">
                                 <option value="">All Type</option>
                                 <option value="1">School</option>
                                 <option value="2">Teacher</option>
                             </select>
-                        </div> --}}
+                        </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="table-responsive">
                     <table class="table table-bordered datatable">
                         <thead>
@@ -94,13 +94,13 @@
                         searchable: false
                     },
                 ],
-                // buttons: ['pdf', {
-                //     extend: 'csv',
-                //     exportOptions: {
-                //         columns: [0, 1, 2, 3],
-                //         orthogonal: 'export'
-                //     }
-                // }],
+                buttons: ['pdf', {
+                    extend: 'csv',
+                    exportOptions: {
+                        columns: [0, 1, 2, 3],
+                        orthogonal: 'export'
+                    }
+                }],
                 order: [
                     [0, "desc"]
                 ],

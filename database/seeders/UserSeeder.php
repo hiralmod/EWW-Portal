@@ -23,6 +23,8 @@ class UserSeeder extends Seeder
 				'email' => 'admin.eww@gmail.com',
 				'password' => Hash::make('12345678'),
                 'phone_number' => '1234567890',
+                'created_at' =>date("Y-m-d H:i:s"),
+                'updated_at' =>date("Y-m-d H:i:s"),
 			]);
 		}
     }

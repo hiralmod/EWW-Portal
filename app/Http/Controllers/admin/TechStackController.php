@@ -3,43 +3,43 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\country;
-use App\Models\state;
+use App\Models\tech_stack;
 use App\Traits\commonTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 
-class StateController extends Controller
+class TechStackController extends Controller
 {
     use commonTrait;
-
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = state::orderBy('id', 'desc')->get();
+            $data = tech_stack::orderBy('id', 'desc')->get();
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('status', function ($row) {
-                    if ($row->status == 1)
-                        $btn = '<a href="javascript:void(0)" class="text-success" id="status_'.$row->id.'" data-table="state" data-id="'.$row->id.'" onclick="change_status(this);return false;"><span class="badge bg-success"> Active</span></a>';
-                    else
-                        $btn = '<a href="javascript:void(0)" class="text-danger" id="status_'.$row->id.'" data-table="state" data-id="'.$row->id.'" onclick="change_status(this);return false;"><span class="badge bg-danger"> Inactive</span></a>';
+                  if($row->status == 1) {
+                    $btn = '<a href="javascript:void(0)" class="text-success" id="status_'.$row->id.'" data-table="tech_stacks" data-id="'.$row->id.'" onclick="change_status(this);"><span class="badge bg-success"> Active</span></a>';
+                  } else {
+                    $btn = '<a href="javascript:void(0)" class="text-danger" id="status_'.$row->id.'" data-table="tech_stacks" data-id="'.$row->id.'" onclick="change_status(this);return false;"><span class="badge bg-danger"> Inactive</span></a>';
+                  }
                     return $btn;
                 }) 
                 ->editColumn('action', function ($row) {
-                    $result = '<a href="' . url('admin/state/edit/'.$row['id']) . '" class="mr-2"><i class="fa fa-edit fa-lg text-blue"></i></a>';
-                    $result .= '<a href="" style="margin-left:3px" id="'.$row->id.'" data-table="state" data-id="'.$row->id.'" onclick="delete_record(this);return false;"><i class="fas fa-trash fa-lg text-blue"></i></a>';
+                    $result = '<a href="' . url('admin/tech_stack/edit/'.$row['id']) . '" class="mr-2"><i class="fa fa-edit fa-lg text-blue"></i></a>';
+                    $result .= '<a href="" id="'.$row->id.'" data-table="tech_stacks" data-id="'.$row->id.'"onclick="delete_record(this);return false;"><i class="fas fa-trash fa-lg text-blue" title="Remove"></i></a>';
                     return $result;
                 })
-
+               
                 ->rawColumns(['action','status'])
                 ->make(true);
         }
-        return $this->adminFile('state.index');
+        return $this->adminFile('tech_stack.index');
     }
 
     /**
@@ -47,8 +47,7 @@ class StateController extends Controller
      */
     public function create()
     {
-        $data['country'] = country::where('status',1)->get();
-        return $this->adminFile('state.add', $data);
+        return $this->adminFile('tech_stack.add');
     }
 
     /**
@@ -56,16 +55,14 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        $PostFields = $request->all();
+        $PostField = $request->all();
 
-        $state = state::where('name',$PostFields['name'])->first();
+        $country = tech_stack::where('name',$PostField['name'])->first();
 
-        if(empty($state))
+        if(empty($country))
         {
-            $data = new state();
-            $data->country_id = $request['country_id'];
+            $data = new tech_stack();
             $data->name = $request['name'];
-            $data->code = $request['code'];
             $data->save();
             Session::flash('success_message', 'Record added successfully');
         }
@@ -73,7 +70,7 @@ class StateController extends Controller
         {
             Session::flash('error_message', 'Record already added!');
         }
-       return redirect()->route('state.index');
+       return redirect()->route('tech_stack.index');
     }
 
     /**
@@ -89,9 +86,8 @@ class StateController extends Controller
      */
     public function edit(string $id)
     {
-        $data['state'] = state::find($id);
-        $data['country'] = country::where('status',1)->get();
-        return $this->adminFile('state.edit',$data);
+        $data = tech_stack::find($id);
+        return $this->adminFile('tech_stack.edit',compact('data'));
     }
 
     /**
@@ -100,12 +96,10 @@ class StateController extends Controller
     public function update(Request $request, string $id)
     {
         $data = $request->input();
-        $update['country_id'] = $data['country_id'];
         $update['name'] = $data['name'];
-        $update['code'] = $data['code'];
-        state::where('id', $id)->update($update);
+        tech_stack::where('id', $id)->update($update);
         Session::flash('success_message', 'Record updated successfully');
-        return redirect()->route('state.index');
+        return redirect()->route('tech_stack.index');
     }
 
     /**

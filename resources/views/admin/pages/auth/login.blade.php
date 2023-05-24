@@ -36,7 +36,7 @@
                                     @csrf
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" name="email" required="" data-parsley-required-message="Please enter email address" data-parsley-type-message="Please enter valid email address" placeholder="Enter your email">
+                                        <input class="form-control" type="email" id="emailaddress" name="email" required="" data-parsley-required-message="Please enter email address" data-parsley-type-message="Please enter valid email address" placeholder="Enter your email" value="{{ old('email') }}">
                                     </div>
 
                                     <div class="form-group mb-3">

@@ -42,7 +42,7 @@ class AuthController extends Controller
             }
         } else {
             Session::flash('error_message', "Entered email address or password incorrect.");
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     }
 
