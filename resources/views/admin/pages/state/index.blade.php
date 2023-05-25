@@ -73,7 +73,7 @@
                         name: 'id'
                     },
                     {
-                        data: 'country_id',
+                        data: 'country.name',
                         name: 'country'
                     },
                     {

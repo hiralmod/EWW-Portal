@@ -73,16 +73,16 @@
                         name: 'id'
                     },
                     {
-                        data: 'country_id',
-                        name: 'Country'
+                        data: 'country',
+                        name: 'country'
                     },
                     {
-                        data: 'state_id',
-                        name: 'State'
+                        data: 'state',
+                        name: 'state'
                     },
                     {
                         data: 'name',
-                        name: 'name',
+                        name: 'Name',
                         orderable: true,
                         searchable: true
                     },

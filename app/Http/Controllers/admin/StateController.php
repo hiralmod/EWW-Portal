@@ -20,7 +20,8 @@ class StateController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = state::orderBy('id', 'desc')->get();
+            $data = state::with('country')->orderBy('id', 'desc')->get();
+
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->editColumn('status', function ($row) {

@@ -20,7 +20,7 @@ class CityController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = city::orderBy('id', 'desc')->get();
+            $data = city::join('country', 'city.country_id', '=', 'country.id')->join('state', 'city.state_id', '=', 'state.id')->select('city.id', 'city.name','city.status', 'country.name as country', 'state.name as state')->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()

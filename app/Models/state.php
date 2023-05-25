@@ -13,6 +13,6 @@ class state extends Model
 
      public function country()
     {
-        return $this->hasOne(country::class);
+        return $this->belongsTo(country::class);
     }
 }

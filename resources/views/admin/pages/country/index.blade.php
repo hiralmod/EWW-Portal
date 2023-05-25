@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div> --}}
-                <div class="table-responsive">
+                <div class="">
                     <table class="table table-bordered datatable">
                         <thead>
                             <tr>
@@ -109,9 +109,6 @@
                     return nRow;
                 }
             });
-            // $(document).on('change', '#type', function() {
-            //     table.draw();
-            // });
         });
     </script>
 @endsection
